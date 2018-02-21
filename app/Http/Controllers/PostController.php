@@ -48,13 +48,13 @@ class PostController extends Controller
         $post->save();
 
         // manual
-        // $client = new \AlgoliaSearch\Client('DO8EQG73W4', '33a156c1b71b784c7e4b96ede00c7c66');
+        // $client = new \AlgoliaSearch\Client('id', 'secret');
         // $index = $client->initIndex('utp_index');
         // $index->addObject(
         //   $post
         // );
         // end of manual way
-        
+
         return view('home');
     }
 
