@@ -18,3 +18,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('search', 'PostController@search')->name('search');
+
+Route::resource('post','PostController');

@@ -24,7 +24,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('post.new');
     }
 
     /**
@@ -35,7 +35,19 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $param = $request->all();
+        $file = $request->file('pdf');
+        $filename = str_replace(' ', '_', $file->getClientOriginalName());
+
+        $request->file('pdf')->move(base_path() . '/public/pdf', $filename);
+
+        $post = new Post;
+        $post->title        = $param['title'];
+        $post->description  = $param['description'];
+        $post->pdf          = $filename;
+        $post->save();
+
+        return view('home');
     }
 
     /**
